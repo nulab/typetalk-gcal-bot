@@ -7,11 +7,10 @@ function doPost(e){
   var data = JSON.parse(json);
   var message = data.post.message;
   var tokens = message.trim().split(/\s/);
-  if(tokens.length < 2){
-    postToTypetalk(['Usage: mention me with "today" "tomorrow" or specified days like "2016/7/7 2016/7/8..."']);
-    return;
-  }
   tokens.shift();
+  if(tokens.length == 0){
+    postToTypetalk(['Usage: mention me with "today" "tomorrow" or specified days like "2016/7/7 2016/7/8..."']);
+  }
   for(var i in tokens) {
     var token = tokens[i];
     if(token == "today"){
