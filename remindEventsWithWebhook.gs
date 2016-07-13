@@ -8,8 +8,9 @@ function doPost(e){
   var message = data.post.message;
   var tokens = message.split(/\s/);
   tokens.shift();
-  if(tokens.length < 2){
+  if(tokens.length < 1){
     postToTypetalk(['Usage: mention me with "today" "tomorrow" or specified days like "2016/7/7 2016/7/8..."']);
+    return;
   }
   for(var i in tokens) {
     var token = tokens[i];
